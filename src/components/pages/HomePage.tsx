@@ -1,4 +1,4 @@
-import { StoreRedux } from '../elements';
+import { StoreRedux } from '../elements/StoreRedux';
 import { BtnLink, Subtitle, Text, Title } from '../ui';
 
 export const HomePage = () => {
