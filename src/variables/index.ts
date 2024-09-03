@@ -3,6 +3,8 @@ import { ISocial } from '../types/Social';
 
 export const PROJECT_NAME = 'Users Table';
 
+export const API_URL = 'https://jsonplaceholder.typicode.com';
+
 export const HEADER_SOCIALS: ISocial[] = [
     {
         id: 0,
