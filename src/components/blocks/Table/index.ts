@@ -1,7 +1,7 @@
-import { Table } from './Table';
 import { TableBlock } from './TableBlock';
 import { TableFilter } from './TableFilter';
 import { TableHead } from './TableHead';
 import { TableList } from './TableList';
+import { TableUsersNotFound } from './TableUsersNotFound';
 
-export { Table, TableBlock, TableFilter, TableHead, TableList };
+export { TableBlock, TableFilter, TableHead, TableList, TableUsersNotFound };

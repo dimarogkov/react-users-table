@@ -1,7 +1,7 @@
 import { Github, Send, Linkedin } from 'lucide-react';
-import { ISocial } from '../types/Social';
+import { ISocial } from '../types/interfaces/Social';
 
-export const PROJECT_NAME = 'Users Table';
+export const PROJECT_NAME = 'SMART business';
 
 export const API_URL = 'https://jsonplaceholder.typicode.com';
 

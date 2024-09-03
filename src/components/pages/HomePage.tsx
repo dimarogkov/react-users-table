@@ -1,20 +1,43 @@
-import { Table } from '../blocks/Table';
-import { Text, Title } from '../ui';
+import { useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { getUsers } from '../../services/users';
+
+import { useAppDispatch } from '../../store';
+import { setUsers } from '../../store/usersReducer';
+
+import { TableBlock, TableFilter, TableHead, TableList } from '../blocks/Table';
+import { Loader, Title } from '../ui';
 
 export const HomePage = () => {
+    const dispatch = useAppDispatch();
+
+    const { data: users, isLoading } = useQuery({
+        queryFn: () => getUsers(),
+        select: (date) => date.data,
+        queryKey: ['users'],
+    });
+
+    useEffect(() => {
+        users && dispatch(setUsers(users));
+    }, [dispatch, users]);
+
     return (
-        <>
-            <section className='relative w-full mb-10 last:mb-0'>
-                <Title className='text-green mb-4 last:mb-0'>Users Table</Title>
+        <section className='relative w-full'>
+            <Title className='text-green mb-5 last:mb-0'>Users Table</Title>
 
-                <Text>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur corrupti voluptatum itaque
-                    similique, quisquam ex aperiam rem ab laborum veritatis vitae eos maxime autem culpa beatae deleniti
-                    necessitatibus reprehenderit praesentium!
-                </Text>
-            </section>
+            <TableFilter isLoading={isLoading} className='mb-5 last:mb-0' />
 
-            <Table />
-        </>
+            <TableBlock>
+                <TableHead />
+
+                {isLoading && (
+                    <div className='relative w-full h-80'>
+                        <Loader />
+                    </div>
+                )}
+
+                <TableList isLoading={isLoading} />
+            </TableBlock>
+        </section>
     );
 };
