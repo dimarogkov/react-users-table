@@ -8,7 +8,7 @@ export const Input: React.FC<Props> = forwardRef<HTMLInputElement, Props>(({ ...
         ref={ref}
         {...props}
         className={cn(
-            'w-full h-10 px-4 rounded border border-gray outline-none transition-all duration-300 focus:border-black',
+            'w-full h-10 px-4 rounded border border-gray bg-transparent outline-none transition-all duration-300 focus:border-black',
             {
                 'bg-white': !props.disabled,
                 'bg-gray': props.disabled,
